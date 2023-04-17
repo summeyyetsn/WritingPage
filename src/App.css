@@ -1,5 +1,30 @@
 /* Basic editor styles */
-.text-editor{
+.tiptop{
+  font-size: 60px;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #7e7e7e;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  font-size:32px;
+  font-family: Times New Roman;
+  font-style: italic;
+  font-weight:bolder;
+  letter-spacing: 3px;
+}
+
+.title-content{
+  
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  max-height: 80px;
+  font-size: 50px;
+  line-height: 1.1;
+ 
 }
 
 .menu-bar{
@@ -30,12 +55,10 @@ button.is-active{
     
 }
 .ProseMirror {
-    
-    /* border:1px solid grey; */
-    border-top:1px solid #EFE7BC;
+    border-top:1px solid #f3efd6;
     background: white;
     min-height: 500px;
-    padding: 10px 70px;
+    padding: 0px 70px;
     font-size: 25px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #292727;
@@ -45,7 +68,7 @@ button.is-active{
 }
 
 .ProseMirror > * + * {
-      margin-top: 0.75em;
+      margin-top: 0.10em;
       border:none;
     }
   
@@ -54,9 +77,9 @@ button.is-active{
       padding: 0 1rem;
     }
   
-    .ProseMirror h1
-     {
-      line-height: 1.1;
+    .ProseMirror h2
+    {
+      line-height: 1;
     }
   
     .ProseMirror code {

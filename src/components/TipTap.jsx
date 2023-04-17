@@ -3,7 +3,7 @@ import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import {FaBold, FaItalic, FaStrikethrough, FaHeading, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaUndo, FaUnderline, FaAlignCenter, FaAlignLeft, FaAlignRight,FaImage} from "react-icons/fa";
 import Underline from "@tiptap/extension-underline";
 import Document from '@tiptap/extension-document'
@@ -15,6 +15,8 @@ import TextAlign from '@tiptap/extension-text-align'
 
 import Image from '@tiptap/extension-image'
 import Dropcursor from '@tiptap/extension-dropcursor'
+
+import Placeholder from '@tiptap/extension-placeholder'
 
 
 
@@ -104,8 +106,8 @@ if (!editor) {
         
         
         <button
-            onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-            className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
+            onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+            className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
         >
             <FaHeading/>
         </button>
@@ -163,44 +165,67 @@ if (!editor) {
 }
 
 const TipTap = ({setDesc}) => {
-  const editor = useEditor({
-    extensions: [
-      Dropcursor,
-      Document,
-      Paragraph,
-      Text,
-      Image,
-      Heading,
-      TextAlign.configure({
-        types: ['heading', 'paragraph'],
-      }),
-      Underline,
-      Color.configure({ types: [TextStyle.name, ListItem.name] }),
-      TextStyle.configure({ types: [ListItem.name] }),
-      StarterKit.configure({
-        bulletList: {
-          keepMarks: true,
-          keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
-        },
-        orderedList: {
-          keepMarks: true,
-          keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
-        },
-      }),
-    ],
-    content: ``,
-    onUpdate: ({editor}) =>{
-        const html = editor.getHTML();
-        setDesc(html);
-    }
-  })
-
-  return (
-    <div clas>
-      <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
-    </div>
-  )
-}
+    const [title, setTitle] = useState('')
+    const [content, setContent] = useState('')
+  
+    const titleEditor = useEditor({
+      extensions: [
+        StarterKit,
+        Placeholder.configure({
+          // Use a placeholder:
+          placeholder: 'Write Your Title ...',
+        }),
+      ],
+      content: '',
+      onUpdate: ({editor}) => {
+        const html = editor.getHTML()
+        setTitle(html)
+      },
+    })
+  
+    const editor = useEditor({
+      extensions: [
+        Dropcursor,
+        Document,
+        Paragraph,
+        Text,
+        Image,
+        Heading,
+        TextAlign.configure({
+          types: ['heading', 'paragraph'],
+        }),
+        Underline,
+        Color.configure({ types: [TextStyle.name, ListItem.name] }),
+        TextStyle.configure({ types: [ListItem.name] }),
+        StarterKit.configure({
+          bulletList: {
+            keepMarks: true,
+            keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+          },
+          orderedList: {
+            keepMarks: true,
+            keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+          },
+        }),
+      ],
+      content: ``,
+      onUpdate: ({editor}) => {
+        const html = editor.getHTML()
+        setContent(html)
+      },
+    })
+  
+    useEffect(() => {
+      setDesc(`<h1>${title}</h1>${content}`)
+    }, [title, content])
+  
+    return (
+      <div>
+        <MenuBar editor={editor} />
+        <EditorContent editor={titleEditor} className='title-content' />
+        <EditorContent editor={editor} />
+      </div>
+    )
+  }
 
 export default TipTap

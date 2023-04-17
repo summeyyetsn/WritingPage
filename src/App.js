@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TipTap from './components/TipTap'
 import './App.css'
+import MultiEditor from './components/MultiEditor'
 // import Image from './components/Image'
 import parser from "html-react-parser"
 
@@ -9,10 +10,10 @@ const App = () => {
   return (
     <div>
       <TipTap setDesc={setDesc}/>
-      {/* <Image/> */}
       <div className='ProseMirror'>
         {parser(desc)}
       </div>
+      {/* <MultiEditor/> */}
     </div>
   )
 }
