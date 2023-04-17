@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import TipTap from './components/TipTap'
+import './App.css'
+// import Image from './components/Image'
+import parser from "html-react-parser"
 
-function App() {
+const App = () => {
+  const [desc, setDesc] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TipTap setDesc={setDesc}/>
+      {/* <Image/> */}
+      <div className='ProseMirror'>
+        {parser(desc)}
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+/* Basic editor styles */
+.text-editor{
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu-bar{
+    padding:15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-bar button{
+    font-size: 18px;
+    margin: 10px;
+    margin-right: 15px;
+    outline: none;
+    border: none;
+    background: none;
+    color:rgb(70, 70, 70);
+    cursor: pointer;
+    border:2px solid #EFE7BC;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+button.is-active{
+    background-color:#EFE7BC;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+.ProseMirror {
+    
+    /* border:1px solid grey; */
+    border-top:1px solid #EFE7BC;
+    background: white;
+    min-height: 500px;
+    padding: 10px 70px;
+    font-size: 25px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #292727;
+}
+.ProseMirror:focus{
+    outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.ProseMirror > * + * {
+      margin-top: 0.75em;
+      border:none;
+    }
+  
+    .ProseMirrorul,
+    .ProseMirrorol {
+      padding: 0 1rem;
+    }
+  
+    .ProseMirror h1
+     {
+      line-height: 1.1;
+    }
+  
+    .ProseMirror code {
+      background-color: #cfcfcf;
+      color: #616161;
+    }
+  
+    .ProseMirror pre {
+      background: #0D0D0D;
+      color: #ffffff;
+      font-family: 'JetBrainsMono', monospace;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+    .ProseMirror pre code {
+        color: inherit;
+        padding: 0;
+        background: #9c9c9c;
+        font-size: 0.8rem;
+      }
+    
+  
+    /* .ProseMirror img {
+      max-width: 100%;
+      height: auto;
+    } */
+  
+    .ProseMirror blockquote {
+      padding-left: 1rem;
+      border-left: 3px solid #292727;
+      background: #EFE7BC;
+    }
+  
+    .ProseMirror hr {
+      border: none;
+      border-top: 1px solid #9c9c9c;
+      margin: 2rem 0;
+    }
+   
+      
+  
