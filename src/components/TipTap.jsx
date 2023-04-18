@@ -13,6 +13,7 @@ import Text from '@tiptap/extension-text'
 import TextAlign from '@tiptap/extension-text-align'
 
 
+
 import Image from '@tiptap/extension-image'
 import Dropcursor from '@tiptap/extension-dropcursor'
 
@@ -38,9 +39,9 @@ if (!editor) {
     <div className='menu-bar'>
         <div>
 
-
+        
             {/* ..........Resim Ekle.......................................................... */}
-            <button onClick={addImage}>
+        <button onClick={addImage}>
         <FaImage/>
         </button>
 

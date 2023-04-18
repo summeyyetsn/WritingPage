@@ -1,7 +1,4 @@
-/* Basic editor styles */
-.tiptop{
-  font-size: 60px;
-}
+
 
 .ProseMirror p.is-editor-empty:first-child::before {
   color: #7e7e7e;
@@ -17,17 +14,20 @@
 }
 
 .title-content{
-  
+  font-family: Georgia, 'Times New Roman', Times, serif;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp:2;
   max-height: 80px;
-  font-size: 50px;
-  line-height: 1.1;
+  font-size: 32px;
+  line-height:32px;
  
 }
 
 .menu-bar{
+  margin-left:110px;
+  /* border:1px solid blue; */
+    width: 50%;
     padding:15px 0px;
     display: flex;
     align-items: center;
@@ -35,32 +35,33 @@
 }
 
 .menu-bar button{
+    border:1px solid white;
+    border-radius: 4px;
     font-size: 18px;
-    margin: 10px;
-    margin-right: 15px;
+    margin-right: 10px;
     outline: none;
-    border: none;
+    
     background: none;
     color:rgb(70, 70, 70);
     cursor: pointer;
-    border:2px solid #EFE7BC;
     padding: 5px;
-    border-radius: 10px;
     
 }
 button.is-active{
-    background-color:#EFE7BC;
-    padding: 5px;
-    border-radius: 10px;
+    background-color:#f3f3f3;
+    border:1px solid #b2b2b2;
+    border-radius: 4px;
+  
     
 }
 .ProseMirror {
     border-top:1px solid #f3efd6;
     background: white;
     min-height: 500px;
-    padding: 0px 70px;
-    font-size: 25px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 0px 150px;
+    font-size: 21px;
+    line-height: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: #292727;
 }
 .ProseMirror:focus{
@@ -70,6 +71,8 @@ button.is-active{
 .ProseMirror > * + * {
       margin-top: 0.10em;
       border:none;
+      
+      
     }
   
     .ProseMirrorul,
@@ -80,6 +83,10 @@ button.is-active{
     .ProseMirror h2
     {
       line-height: 1;
+      font-size:35px;
+      font-style:normal;
+      font-weight: lighter;
+      
     }
   
     .ProseMirror code {
@@ -108,16 +115,23 @@ button.is-active{
     } */
   
     .ProseMirror blockquote {
-      padding-left: 1rem;
+      padding-left:10px;
       border-left: 3px solid #292727;
-      background: #EFE7BC;
+      /* background: #EFE7BC; */
+       font-style:italic;
+       color:#292727;
+       margin-left:0px;
+       /* font-size:21px; */
+       line-height: 15px;
     }
   
     .ProseMirror hr {
       border: none;
-      border-top: 1px solid #9c9c9c;
+      border-top: 1px dotted #9c9c9c;
       margin: 2rem 0;
     }
+
+    
    
       
   
